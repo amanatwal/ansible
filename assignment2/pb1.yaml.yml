@@ -1,0 +1,17 @@
+---
+- name: Group X playbook
+  hosts: linux
+  become: yes
+  vars:
+    disk_device: "/dev/sdc"
+    part1_size: "4GiB"
+    part2_size: "5GiB"
+    cloudadmins:
+      - name: "user1000"
+      - name: "user2000"
+
+  roles:
+    - datadisk
+    - system_profile
+    - users
+    - webserver
